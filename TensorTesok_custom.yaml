@@ -1,0 +1,21 @@
+
+#T.T custum map
+tiles:
+- [curve_left/W , 3way_left/W, straight/W , 3way_left/W, curve_left/N]
+- [straight/S   , straight/N    , grass   , 3way_left/S   , curve_left/E]
+- [curve_left/S , 3way_left/E, straight/W  , 3way_left/N, grass]
+- [grass         , grass      , grass     , straight/N , grass]
+- [grass         , grass      , grass     , straight/N , grass]
+- [grass         , grass      , curve_left/W     , 3way_left/E , curve_left/N]
+- [grass         , grass      , straight/N     , curve_left/W  , curve_left/E]
+- [grass         , grass      , curve_left/S    , curve_left/E , grass]
+
+
+objects:
+- kind: sign_oneway_left
+  pos: [3, 6]
+  rotate: 100
+  height: 0.2
+  optional: false
+
+tile_size: 0.6
