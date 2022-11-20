@@ -9,11 +9,21 @@ Topic: Önvezető autózás a Duckietown környezetben <br />
 
 
 ## Run the code
-To run the code the official gym-duckietown should be installed first (https://github.com/duckietown/gym-duckietown). 
 
-After that to run simulation on the custom map:
+Install necessary dependencies by these commands:
 ```
 git clone https://github.com/marton12050/T.T-duckietown
 cd T.T-duckietown
-./basic_control.py --map-name TensorTesok_custom.yaml
+pip3 install -e .
+```
+## Training
+Train the model with default parameters:
+```
+python3 training.py
+```
+
+## Evaluate
+Evaluate on our custom map
+```
+python3 test.py
 ```

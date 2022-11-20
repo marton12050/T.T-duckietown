@@ -26,7 +26,7 @@ line = "daffy"
 install_requires = [
     "gym>=0.17.1",
     "numpy>=1.10.0",
-    "pyglet",
+    "pyglet==1.5.15",
     # 'pyglet',
     "pyzmq>=16.0.0",
     "scikit-image>=0.13.1",
@@ -36,6 +36,9 @@ install_requires = [
     f"duckietown-world-{line}",
     "PyGeometry-z6",
     "carnivalmirror==0.6.2",
+    "py-multihash==0.2.0",
+    "pillow==8.3.2",
+    "numpy==1.18.0",
     
     "tensorboard",
     "torchvision",

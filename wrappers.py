@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 
 '''
-These wrappers are from the original gym-duckietown
+These wrappers are from the original gym-duckietown with minor adjustment
 (https://github.com/duckietown/gym-duckietown/blob/daffy/learning/utils/wrappers.py)
 '''
 
