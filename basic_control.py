@@ -4,11 +4,7 @@
 Simple exercise to construct a controller that controls the simulated Duckiebot using pose. 
 """
 
-import time
-import sys
 import argparse
-import math
-import numpy as np
 import gym
 from gym_duckietown.envs import DuckietownEnv
 
