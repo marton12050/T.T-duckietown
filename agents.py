@@ -21,8 +21,9 @@ def impala(name, num_gpus, num_workers, max_steps, restore_chk):
 
                         "num_workers": num_workers,
                         "num_gpus": num_gpus,
-                        "train_batch_size": 1024,
+                        "train_batch_size": 1024, #Bigger batch size and my laptop crash lmao
                         "gamma": 0.99,
+                        # If learning rate is too big, it will crash after around 100K steps(lr=0.0001)
                         "lr": ray.tune.loguniform(0.00005, 5e-6),
                         "seed":123,
                 },

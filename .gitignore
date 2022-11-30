@@ -4,7 +4,8 @@ __pycache__/
 *$py.class
 
 .idea
-
+__pycache__
+temp
 # C extensions
 *.so
 
