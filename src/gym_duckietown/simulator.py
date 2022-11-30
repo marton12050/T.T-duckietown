@@ -181,7 +181,7 @@ LanePosition0 = namedtuple("LanePosition", "dist dot_dir angle_deg angle_rad")
 
 class LanePosition(LanePosition0):
     def as_json_dict(self):
-        """ Serialization-friendly format. """
+        """Serialization-friendly format."""
         return dict(dist=self.dist, dot_dir=self.dot_dir, angle_deg=self.angle_deg, angle_rad=self.angle_rad)
 
 
@@ -577,7 +577,7 @@ class Simulator(gym.Env):
         # specular = np.array([0.3, 0.3, 0.3, 1])
         specular = np.array([0.0, 0.0, 0.0, 1])
 
-        logger.info(light_pos=light_pos, ambient=ambient, diffuse=diffuse, specular=specular)
+        # logger.info(light_pos=light_pos, ambient=ambient, diffuse=diffuse, specular=specular)
         gl.glLightfv(gl.GL_LIGHT0, gl.GL_POSITION, (gl.GLfloat * 4)(*light_pos))
         gl.glLightfv(gl.GL_LIGHT0, gl.GL_AMBIENT, (gl.GLfloat * 4)(*ambient))
         gl.glLightfv(gl.GL_LIGHT0, gl.GL_DIFFUSE, (gl.GLfloat * 4)(*diffuse))
@@ -2125,7 +2125,7 @@ class FrameBufferMemory:
     height: int
 
     def __init__(self, *, width: int, height: int):
-        """ H, W """
+        """H, W"""
         self.width = width
         self.height = height
 

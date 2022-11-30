@@ -53,6 +53,7 @@ while True:
     total_reward += reward
     
     print('Steps = %s, Timestep Reward=%.3f, Total Reward=%.3f' % (env.step_count, reward, total_reward))
+    print(f"distance_to_road_center:{distance_to_road_center}, angle_from_straight_in_rads:{lane_pose.angle_deg},speed:{env.speed}")
 
     env.render()
 
