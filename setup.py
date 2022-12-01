@@ -25,7 +25,8 @@ line = "daffy"
 
 install_requires = [
     "gym==0.17.1",
-    "numpy==1.18.0",
+    #"numpy==1.18.0",
+    "numpy",
     "pillow==8.3.2",
     "pyzmq>=16.0.0",
     "scikit-image>=0.13.1",
