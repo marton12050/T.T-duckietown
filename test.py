@@ -29,6 +29,16 @@ trainer_config = {
 		},
 }
 
+ray.shutdown()
+
+ray.init(
+    num_cpus=3,
+    num_gpus=0,
+    include_dashboard=False,
+    ignore_reinit_error=True,
+    log_to_driver=False,
+)
+
 if args.mode == "impala":
     model = ImpalaTrainer(config=trainer_config, env="TTenv")
 elif args.mode == "ppo": 
@@ -43,7 +53,7 @@ for step in range(10):
     env.render()
     done = False
     while not done:
-        action = model.compute_single_action(obs)
+        action = model.compute_action(obs)
         observation, reward, done, info = env.step(action)
         env.render()
         time.sleep(0.02)

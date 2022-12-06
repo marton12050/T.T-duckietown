@@ -41,9 +41,9 @@ install_requires = [
 
     "tensorboard",
     "torchvision",
-    #"ray==1.4.0",
-    "ray[tune]",
-    "ray[rllib]"
+    "ray==1.4.0",
+    #"ray[tune]",
+    #"ray[rllib]"
 ]
 
 system_version = tuple(sys.version_info)[:3]
