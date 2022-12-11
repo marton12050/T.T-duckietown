@@ -71,9 +71,34 @@ class ActionWrapper(gym.ActionWrapper):
         super(ActionWrapper, self).__init__(env)
 
     def action(self, action):
-        action_ = [action[0] * 0.8, action[1]]
+        action_ = [0.25, action[1]]
         return action_
 
+class DiscreteWrapper(gym.ActionWrapper):
+    """
+    Duckietown environment with discrete actions (left, right, forward)
+    instead of continuous control
+    """
+
+    def __init__(self, env):
+        gym.ActionWrapper.__init__(self, env)
+        self.action_space = spaces.Discrete(3)
+
+    def action(self, action):
+        # Go forward
+        if action == 0:
+            vels = [0.5, 0.0]
+        # Turn right
+        elif action == 1:
+            vels = [0.4, -1.0]
+        # Turn left
+        elif action == 2:
+            vels = [0.4, +1.0]
+        else:
+            assert False, "unknown action"
+        return np.array(vels)
+
+    
 class DtRewardWrapper(gym.RewardWrapper):
     """
     Rewards calculator
@@ -84,7 +109,7 @@ class DtRewardWrapper(gym.RewardWrapper):
         self.prev_pos = None
 
     def reward(self, reward):
-        my_reward = 0
+        my_reward = -1000
 
         # Get current parameters/positions
         pos = self.cur_pos
@@ -94,13 +119,13 @@ class DtRewardWrapper(gym.RewardWrapper):
 
         #Init state no reward
         if prev_pos is None:
-            return my_reward
+            return 0
 
         # Compute parameters
         curve_point, curve_tangent = self.closest_curve_point(pos, angle)
         prev_curve_point, prev_curve_tangent = self.closest_curve_point(prev_pos, angle)
         if curve_point is None or prev_curve_point is None:
-            return my_reward
+            return 0
 
         # Calculate the distance of the length of curves        
         diff = curve_point - prev_curve_point
@@ -112,20 +137,24 @@ class DtRewardWrapper(gym.RewardWrapper):
             return my_reward
 
         # Not in the right lane
-        if lane_pos.dist < -0.05:
+        if lane_pos.dist < -0.06:
             return my_reward
         # Bad turning/ wrong direction
         if np.dot(curve_tangent, curve_point - prev_curve_point) < 0:
             return my_reward
+        #Reverse
+        if abs(lane_pos.angle_deg) > 120:
+            return my_reward 
 
         # Normalize rewards from each domain
-        lane_center_dist_reward = np.interp(np.abs(lane_pos.dist), (0, 0.04), (1, 0))
-        lane_center_angle_reward = np.interp(np.abs(lane_pos.angle_deg), (0, 180), (1, -1))
+        lane_center_dist_reward = np.interp(abs(lane_pos.dist), (0, 0.05), (1, 0))
+        lane_center_angle_reward = np.interp(abs(lane_pos.angle_deg), (0, 180), (1, -1))
         #speed_reward = np.interp(np.abs(lane_pos.angle_deg), (0, 0.15), (0, 1))
 
         # Calculate reward based on travel distance, 
         # distance from the middle of the lane
         # the curve to the middle of the lane
         my_reward = 100 * dist + 1 * lane_center_dist_reward + 1 * lane_center_angle_reward
+        #my_reward = 1 * lane_pos.dist - 10 * abs(lane_pos.angle_rad)
 
         return my_reward

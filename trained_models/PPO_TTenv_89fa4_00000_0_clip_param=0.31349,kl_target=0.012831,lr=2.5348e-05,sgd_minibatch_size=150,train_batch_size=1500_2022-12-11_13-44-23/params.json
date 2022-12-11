@@ -1,0 +1,20 @@
+{
+  "clip_param": 0.31349039887922664,
+  "env": "TTenv",
+  "env_config": {
+    "accepted_start_angle_deg": 5
+  },
+  "framework": "torch",
+  "gamma": 0.99,
+  "kl_target": 0.012830732002994304,
+  "lambda": 0.98,
+  "lr": 2.534800302779968e-05,
+  "model": {
+    "fcnet_activation": "relu"
+  },
+  "num_gpus": 0,
+  "num_workers": 2,
+  "rollout_fragment_length": 200,
+  "sgd_minibatch_size": 150,
+  "train_batch_size": 1500
+}

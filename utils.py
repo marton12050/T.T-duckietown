@@ -1,4 +1,4 @@
-from wrappers import ResizeWrapper, NormalizeWrapper, ImgWrapper, DtRewardWrapper, ActionWrapper, CropImageWrapper
+from wrappers import ResizeWrapper, NormalizeWrapper, DtRewardWrapper, ActionWrapper, CropImageWrapper, DiscreteWrapper
 from gym_duckietown.simulator import Simulator
 from ray.tune.registry import register_env
 
@@ -24,7 +24,8 @@ def reg_env(args):
         env = CropImageWrapper(env,3)
         env = ResizeWrapper(env)
         env = NormalizeWrapper(env)
-        env = ActionWrapper(env)  
+        env = DiscreteWrapper(env)  
+        #env = ActionWrapper(env)  
         env = DtRewardWrapper(env)
 
         return env #Return the created simulator with wrappers around it
@@ -49,7 +50,8 @@ def get_env(args):
     env = CropImageWrapper(env,3)
     env = ResizeWrapper(env)
     env = NormalizeWrapper(env)
-    env = ActionWrapper(env)  
+    env = DiscreteWrapper(env)  
+    #env = ActionWrapper(env)  
     env = DtRewardWrapper(env)
 
     return env

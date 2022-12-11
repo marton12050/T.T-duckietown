@@ -1,0 +1,17 @@
+{
+  "env": "TTenv",
+  "env_config": {
+    "accepted_start_angle_deg": 5
+  },
+  "framework": "torch",
+  "gamma": 0.99,
+  "lambda": 0.95,
+  "lr": 9.012116350811364e-05,
+  "model": {
+    "fcnet_activation": "relu"
+  },
+  "num_gpus": 0,
+  "num_workers": 2,
+  "sgd_minibatch_size": 32,
+  "train_batch_size": 512
+}

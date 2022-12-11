@@ -58,6 +58,7 @@ for step in range(10):#Agent has 10 'life' for testing
     done = False
     while not done:
         action = model.compute_action(obs)#Agent calculate action from observastion
+        print(action)
         observation, reward, done, info = env.step(action)#Give action to the env
         env.render()
         time.sleep(0.01)
