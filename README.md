@@ -19,6 +19,9 @@ Topic: Önvezető autózás a Duckietown környezetben <br />
 - `utils.py` For nicer code
 - `setup.py` Dependency installer
 - `src/` gym_duckietown repository with fixes
+- `train_models/` train models, try out with test.py
+- `report_fin.pdf` Report for the project
+
 
 ## Run the code
 Prerequirement: Python 3.8
