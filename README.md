@@ -1,12 +1,5 @@
-# Deep Learning Homework - Duckietown
-BME Deep Learning a gyakorlatban Python és LUA alapon university group assignment <br />
-Group name: Tensor.Tensók/T.T <br />
-Members: <br />
-- Kerekes Márton (UHQUIW) <br />
-- ~~Blazsek Péter (AYVNKW)~~ <br />
-- ~~Sárdi Ferenc Zsolt (QGGGFC)~~ <br />
-
-Topic: Önvezető autózás a Duckietown környezetben <br />
+## Motivation
+The primary motivation behind this repository is to develop and fine-tune autonomous navigation strategies for Duckiebots using cutting-edge reinforcement learning techniques. The goal is to create intelligent agents that can maneuver through complex scenarios while adhering to traffic rules, avoiding obstacles, and following optimal paths. By leveraging the power of reinforcement learning and a deep understanding of the Duckietown environment, we seek to achieve high-performance navigation agents that showcase the potential of AI-driven robotics.
 
 ## Files 
 - `TensorTesok_custom.yaml`  Custom map for the simulations.
